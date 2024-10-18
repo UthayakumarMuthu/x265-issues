@@ -1,0 +1,48 @@
+From 58d655f075e3d55d0c1d7c99011a9c3b256a7857 Mon Sep 17 00:00:00 2001
+From: Uthayakumar Muthu <uthayakumar.muthu@multicorewareinc.com>
+Date: Fri, 18 Oct 2024 12:42:58 +0530
+Subject: [PATCH] Windows: Fix PDB file generation
+
+---
+ source/CMakeLists.txt | 24 ++++++++++++++++--------
+ 1 file changed, 16 insertions(+), 8 deletions(-)
+
+diff --git a/source/CMakeLists.txt b/source/CMakeLists.txt
+index 37b83f959..269c63372 100755
+--- a/source/CMakeLists.txt
++++ b/source/CMakeLists.txt
+@@ -783,15 +783,23 @@ endif()
+ install(FILES x265.h "${PROJECT_BINARY_DIR}/x265_config.h" DESTINATION include)
+ if((WIN32 AND ENABLE_CLI) OR (WIN32 AND ENABLE_SHARED))
+     if(MSVC_IDE)
+-        install(FILES "${PROJECT_BINARY_DIR}/Debug/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug)
+-        install(FILES "${PROJECT_BINARY_DIR}/RelWithDebInfo/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo)
+-        install(FILES "${PROJECT_BINARY_DIR}/Debug/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug OPTIONAL NAMELINK_ONLY)
+-        install(FILES "${PROJECT_BINARY_DIR}/RelWithDebInfo/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo OPTIONAL NAMELINK_ONLY)
++        if(ENABLE_CLI)
++            install(FILES "${PROJECT_BINARY_DIR}/Debug/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug)
++            install(FILES "${PROJECT_BINARY_DIR}/RelWithDebInfo/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo)
++        endif()
++        if(ENABLE_SHARED)
++            install(FILES "${PROJECT_BINARY_DIR}/Debug/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug OPTIONAL NAMELINK_ONLY)
++            install(FILES "${PROJECT_BINARY_DIR}/RelWithDebInfo/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo OPTIONAL NAMELINK_ONLY)
++        endif()
+     else()
+-        install(FILES "${PROJECT_BINARY_DIR}/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug)
+-        install(FILES "${PROJECT_BINARY_DIR}/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo)
+-        install(FILES "${PROJECT_BINARY_DIR}/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug OPTIONAL NAMELINK_ONLY)
+-        install(FILES "${PROJECT_BINARY_DIR}/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo OPTIONAL NAMELINK_ONLY)
++        if(ENABLE_CLI)
++            install(FILES "${PROJECT_BINARY_DIR}/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug)
++            install(FILES "${PROJECT_BINARY_DIR}/x265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo)
++        endif()
++        if(ENABLE_SHARED)
++            install(FILES "${PROJECT_BINARY_DIR}/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS Debug OPTIONAL NAMELINK_ONLY)
++            install(FILES "${PROJECT_BINARY_DIR}/libx265.pdb" DESTINATION ${BIN_INSTALL_DIR} CONFIGURATIONS RelWithDebInfo OPTIONAL NAMELINK_ONLY)
++        endif()
+     endif()
+ endif()
+ if(CMAKE_RC_COMPILER)
+-- 
+2.45.2.windows.1
+

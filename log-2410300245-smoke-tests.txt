@@ -1,0 +1,47 @@
+
+system:      mac-arm64
+hardware:    
+testharness: b'541eefaccbbab6d45f917347a7435b9befceb058'
+commit c0d9157db7bcdc6b7ab05365d516d9fcda960657
+Author: Uthayakumar Muthu <uthayakumar.muthu@multicorewareinc.com>
+Date:   Tue Oct 29 13:48:11 2024 +0000
+
+    Updated Fix Build Warnings issue in x265
+
+
+Running /Users/ec2-user/uthaya/release_4.1/rel_4.1/x265_git/source/test/smoke-tests.txt
+
+cur build: gcc group=gcc
+generator: Unix Makefiles
+options  : warn checked {'CFLAGS': '-w'}
+
+cur build: gcc-main10 group=gcc-main10
+generator: Unix Makefiles
+options  : warn main10 tests checked {'CFLAGS': '-w'}
+
+cur build: gccmain12 group=gcc-main12
+generator: Unix Makefiles
+options  : warn tests main12 checked {'CFLAGS': '-w'}
+
+cur build: gcc-multilib group=gcc-multilib
+generator: Unix Makefiles
+options  : warn checked {'add-depths': ['10bit', '12bit'], 'CFLAGS': '-w'}
+
+cur build: gcc group=gcc
+generator: Unix Makefiles
+options  : warn checked {'CFLAGS': '-w'}
+
+cur build: gcc-main10 group=gcc-main10
+generator: Unix Makefiles
+options  : warn main10 tests checked {'CFLAGS': '-w'}
+
+cur build: gccmain12 group=gcc-main12
+generator: Unix Makefiles
+options  : warn tests main12 checked {'CFLAGS': '-w'}
+
+cur build: gcc-multilib group=gcc-multilib
+generator: Unix Makefiles
+options  : warn checked {'add-depths': ['10bit', '12bit'], 'CFLAGS': '-w'}
+
+
+All tests passed for c0d9157db7bcdc6b7ab05365d516d9fcda960657 on mac-arm64

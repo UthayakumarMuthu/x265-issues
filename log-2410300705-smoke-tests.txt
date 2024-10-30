@@ -1,0 +1,47 @@
+
+system:      Picollo (Windows)
+hardware:    
+testharness: a5b02714cd6f61eb2ad697843ec4db5b1e64eab2
+commit 5b86dcab408444c591da7cdcffe51844855df50e
+Author: Uthayakumar Muthu <uthayakumar.muthu@multicorewareinc.com>
+Date:   Tue Oct 29 13:48:11 2024 +0000
+
+    Updated Fix Build Warnings issue in x265
+
+
+Running D:\Uthayakumar\x265_git\source\test\smoke-tests.txt
+
+cur build: vc15_64_8bpp group=vc15
+generator: Visual Studio 17 2022
+options  : checked static warn  test  {'CFLAGS': '-w'}
+
+cur build: vc15_64_multilib group=vc15_multi
+generator: Visual Studio 17 2022
+options  : warn checked {'add-depths': ['10bit', '12bit']}
+
+cur build: vc15_64_16bpp group=vc15_16bit
+generator: Visual Studio 17 2022
+options  : checked static warn main10  test  {'CFLAGS': '-w'}
+
+cur build: vc15_64_main12 group=vc15_12bit
+generator: Visual Studio 17 2022
+options  : tests main12 warn checked {'CFLAGS': '-w'}
+
+cur build: vc15_64_8bpp group=vc15
+generator: Visual Studio 17 2022
+options  : checked static warn  test  {'CFLAGS': '-w'}
+
+cur build: vc15_64_multilib group=vc15_multi
+generator: Visual Studio 17 2022
+options  : warn checked {'add-depths': ['10bit', '12bit']}
+
+cur build: vc15_64_main12 group=vc15_12bit
+generator: Visual Studio 17 2022
+options  : tests main12 warn checked {'CFLAGS': '-w'}
+
+cur build: vc15_64_16bpp group=vc15_16bit
+generator: Visual Studio 17 2022
+options  : checked static warn main10  test  {'CFLAGS': '-w'}
+
+
+All tests passed for 5b86dcab408444c591da7cdcffe51844855df50e on Picollo (Windows)

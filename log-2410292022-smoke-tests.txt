@@ -1,0 +1,47 @@
+
+system:      yazh (linux)
+hardware:    
+testharness: a5d8fab0b33c42329ba41f2a73edf64e6772160c
+commit f09c76436a60b0e47e1bce504cf95067fbf0a351
+Author: Uthayakumar Muthu <uthayakumar.muthu@multicorewareinc.com>
+Date:   Tue Oct 29 13:48:11 2024 +0000
+
+    Updated Fix Build Warnings issue in x265
+
+
+Running /home/mcw/Uthayakumar/temp/release_4.1/x265_git/source/test/smoke-tests.txt
+
+cur build: gcc-multilib group=gcc-multilib
+generator: Unix Makefiles
+options  : warn checked {'add-depths': ['10bit', '12bit'], 'CFLAGS': '-w'}
+
+cur build: gcc-main10 group=gcc-main10
+generator: Unix Makefiles
+options  : warn main10 tests checked {'CFLAGS': '-w'}
+
+cur build: gcc group=gcc
+generator: Unix Makefiles
+options  : warn tests checked {'CFLAGS': '-w'}
+
+cur build: gccmain12 group=gcc-main12
+generator: Unix Makefiles
+options  : warn tests main12 checked {'CFLAGS': '-w'}
+
+cur build: gcc-multilib group=gcc-multilib
+generator: Unix Makefiles
+options  : warn checked {'add-depths': ['10bit', '12bit'], 'CFLAGS': '-w'}
+
+cur build: gcc group=gcc
+generator: Unix Makefiles
+options  : warn tests checked {'CFLAGS': '-w'}
+
+cur build: gcc-main10 group=gcc-main10
+generator: Unix Makefiles
+options  : warn main10 tests checked {'CFLAGS': '-w'}
+
+cur build: gccmain12 group=gcc-main12
+generator: Unix Makefiles
+options  : warn tests main12 checked {'CFLAGS': '-w'}
+
+
+All tests passed for f09c76436a60b0e47e1bce504cf95067fbf0a351 on yazh (linux)
